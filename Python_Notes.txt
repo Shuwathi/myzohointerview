@@ -1,0 +1,634 @@
+PYTHON
+Dynamic Typing - Depending on how a value is used the datatype of the variable is automatically assigned.
+Datatypes
+int float complex 
+string ,boolean
+type(var)/ isinstanceof()/id(var) ->memory reference
+ Variable is a memory location is used to store value/ data
+To get input
+a=input()
+To print output
+print(a)
+Operators
+Arithmetic   (+,-,*,/,//,%)
+Assignment (=,+=,-=.*=,/=,%=)
+Relational    (>,<,>=,<=,==,!=)
+Logical        (and,or,not)
+Selection control statements(IF)
+if(con):
+   stmt1
+elif(con):
+   stmt2
+else:
+   stmt3
+Iteration(FOR,WHILE)
+while(con):
+  stmt1,,,,,n
+for i in range(0,5):
+  stmt1
+Loop control stmts
+break -skip the iteration
+continue - skips the current loop and jumps for next iteration
+pass - does nothing
+int - immutatble
+Collection
+l=[1,2,3]
+m=l ->both literals point to same list so change maden in m will also reflect in l
+m=l.copy() - does not reflect
+shallow copy and deep copy
+copy - this is to avoid mutability
+List  - [] - mutable
+max(list)
+list.append()
+list.sort()
+list.reverse()
+To access elements-list[0]
+len(list)
+list slicing: list[1:n]-->consider upto n-1 index
+l1=[i for i in range(5,0,-1)
+String -""
+name="roshan"
+name[2]=s
+str.split()
+name.count('o')= count of o in name (replace,find,startswith)
+name.upper(),name.lower()
+Set -{} - to eliminate duplicates has only unique ele
+a=set( )
+s={1,2,3}, s1={2,3,4}
+s.add()
+s.remove()
+s.union( )
+s.pop( ) - pop 1st element 
+union - |  (s|s1) - join
+intersection - &  (s&s1) - common
+difference - -  (s-s1) - taking uncommon ele
+Tuple -() (imutable lists )
+t=t1+t2
+namedtuple
+from collections import namedtuple
+nt=namedtuple("car",["carnames","name"])
+c1=nt("mar",shu")
+print(c1)
+output
+car(carname=mar,name=shu)
+
+
+Dictionary - {'a':1}
+key value pairs - key should be unique  
+d.update('a':2)
+d.keys( ),d.values( ),d.items( )
+Functions - To perform specific task(reusability)
+def function_name([arg1,...,argn]): 
+    #statements 
+    [return value] 
+variable_name = function_name([val1,...,valn])
+concept of mutability.
+ If the argument passed is immutable then it follows pass by value, 
+if the argument passed is mutable then it follows pass by reference.
+Packages
+Directory containing many modules or sub packages
+Random :
+import random
+random.randrange(x,y)
+Math :
+import math
+math.factorial(x) (ceil,floor,fabs)
+File Handling
+To perform operations on a file
+open  - open a file
+read  - read a file
+write - overwrite the existing file
+append - append with existing file
+example :
+with open('text.txt','r') as f:
+    t=f.read()
+    print(t)
+
+To read a file
+f=open("filename.ex",'r')
+a=f.read( ) ->read(5),readlines( ),
+print(a,type(a)) ->print type
+To iterate a file
+for i in a:
+print(i)
+To write a file:
+f=open("filename.rx",'w')
+f.write("This is a write example")
+f.close()
+To append a file
+f=open("filename.ex",'a')
+f.write("This is a append example")
+f.close()
+To read data from json file
+with open('fn.json','w') as fo:
+res=json.load(fo) 
+To extract file from api- (json- dict)
+import json
+l={
+'count':10,
+'result': [ 
+{'col1:'values'},{'col2':'val'}
+]
+}
+with open('fn.json",'w') as a:
+    json.dump(l,a,indent=4)
+or
+jo=json.dumps(l,indent=4)
+with open('fn.json",'w') as a:
+   a.write(jo)
+import json- covert dict to json objects
+
+CSV FILES
+
+lol=[
+['name','id','unit'],
+['xyz',1,'dna'],
+['abc',2,'dna']
+]
+To write:
+with open('fn.csv','w') as csvo:
+   cwrite = csv.writer(csvo)
+   cwrite.writerrows(lol)(multiple) - write(lol)(single)
+To read:
+with open('fn.csv','r') as csvo:
+ cread = csv.reader(csvo)
+for line in cread:
+print(line)
+
+Exception Handling:
+try 
+except Exception as ex:
+    raise Exception(ex)
+finally:
+  always exceute
+  
+  
+ ADVANCED PYTHON
+oops in python - To build complex real world apps (eg:Amazon)
+ Class- It contains attributes and behaviour
+It is used for classification
+Class classname:
+      pass
+@classmethod
+Classmethods-alternative constructor,methods automatically passes class as first args called cls
+Normal methods automatically passes instances as first args called self
+@staticmethod
+It does not take self or cls as first args
+Its similar like normal function
+isinstance(instance.classname)
+issubclass(subcls,clsname)
+help(classname)
+Self is like instances of class
+Dunder - __add__(self,other) (method starting with __) this can be used to add two instances
+there is also some built in methods which we can use directly with instances
+example:print(son.num.__len__())-To find length,
+__name__() - to get name
+Object: syntax: classname()
+Reference variables - To reuse the object we create
+eg: var1=classname()
+Attribute of an object
+If we want to create attribute outside of class
+reference_variable.attribute_name=value.
+Constructor 
+When we create an object, the special method __init__() inside the class of that object is invoked automatically. This special method is called as a constructor
+Common attributes are created using _init_
+class Mobile:
+    def __init__(self):
+        print("Inside constructor")
+Self
+Reference variable to invoke method
+Destructor
+Destructor is a special method which will be invoked automatically when the object gets removed from the memory.
+Abstraction
+Hiding implementation
+“shows” only essential attributes
+Encapsulation:
+Encapsulation is preventing access to a data outside the class
+Adding a __ in front of a attribute makes it private
+Getter and Setter methods should be used to access a private attribute
+ (caution sign than a lock)
+lock can be put to a data by using __ (means  _Classname__attributename)
+method of restricting access to our data is called Encapsulation.
+Static variables
+Var that are created at class level are called static variable.
+class Mobile:
+   dis=50
+  def _init_(self):
+
+Static attributes are accessed using ClassName
+Static attributes are object independent, We can access them without creating instance (object) of the class in which they are defined
+The value stored in static attribute is shared between all instances(objects) of the class in which the static attribute is defined
+
+To make object interact with other object we have
+ inheritance - one obj is a type of other obj
+aggregation - one owns other,both independant
+composition - one owns other both have same life cycle
+Association - If an object is used only in a method of a class as a local variable then it is called as Association
+Inheritance - When a class inherits from another class, then those classes are said to have an inheritance relationship.
+Single - 1 par,1 child
+multi level - 1 par,1 child, 1 grand child
+hierarchical - 1 par,many child
+multiple - one child , many par
+Advantage
+We can keep common properties in a single place, thus any changes needs to be made need not be repeated
+Inheritance encourages code reuse thus saving us time
+If we want to add a new type of phone later on, we can simply inherit the Phone class instead of writing it from scratch
+example
+class Phone:
+pass
+class FeaturePhone(Phone): -(parent classs is mentioned in ( ) )
+Polymorphism
+When the child has a method with the same name as that of the parent, it is said to override the parent’s method. This is called as Method Overriding. Method overriding is also called as Polymorphism.
+super() function can be used to access the constructor or methods of the parent class, but not the attributes. Also super() function can be used only inside a class and not outside the class.
+
+Exception:
+Built-in 
+User - Defined
+To raise an exception use raise exception:
+raise Exception( )
+example:
+try:
+        c.purchase_item(1200,card_no)
+        break
+except Exception as e:
+        print("Something went wrong. "+str(e))
+To inherit an exception class
+class WrongCard(Exception):
+    pass
+Database
+import mysql.connector
+To execute any type of query, we need to use the Cursor object
+Connecting to a database using connect function of mysql.connector
+Creating a cursor to perform CRUD operations
+Executing Queries using Execute method of cursor
+Invoking Stored Procedures using callproc method of cursor
+MongoDB - Document oriented
+PyMongo is a driver which is used to connect from  python to MongoDB. It acts an interface between Python and MongoDB.
+Web Programming
+CGI -  uses html (import cgi)
+
+
+Generators
+Boost Performance 
+Saves memory space
+yield - to hold value
+next() - to print the yielded value
+
+Generators creates generator object
+we can also loop through the generator object  to print the yielded value
+
+
+# List Comprehension  
+z = [x**3 for x in list]  
+# Generator expression  
+a = (x**3 for x in list)  
+
+Logging
+Used for tracking the events while running s/w
+used instead of print stmts
+
+Decorators:
+we can add additional functionality to new function 
+Its a function that takes another function as argument and returns other function
+this does not affec the source code
+
+The proper way to never forget how decorators work is just keeping in mind what that '@' syntax means: 
+
+@decorator
+ def function():
+    ...
+
+is equivalent to: function = decorator(function).
+def dec_func(org_func):
+ def wrap_func():
+    return org_func()
+ return wrap_func
+def display():
+ print("hii")
+op=dec_func(display)
+op()
+
+
+
+To access a method just like a attribute we can use a decorator called 
+@property
+If we use this before a method def in a class then we can access tat method jst like a attribute outside a class.i.e without  ( )
+
+If we need the getter and setter functionality we can use property decorator likebelow
+
+We can also create used defined decorator 
+ex if we have method fullname
+then @fullname.setter
+for deletion
+@fullname.deleter
+
+
+UnitTesting
+2 Techniques
+Path coverage
+Boundary Value Analysis
+
+Calc.py - file 
+test_calc - new ly created
+import unittest - std lib
+import calc - modules req
+class clsname(unittest.TestCase):
+
+HTTP REQUESTS
+
+pip install requests
+import requests
+r=requests.get('https://xkcd.com/353/ ')
+print(r.text)
+ for image
+/comics.python.png
+with open('img.png','wb')as f:
+f.write(r.content)
+
+print(r.status_code) - 200 all succ 500-fai;ed
+print(r.ok) - t/f
+print(r.headers)
+ Using get
+payload={'page':2,'count':25}
+r=requests.get('https://httpbin.org/get',,params=payload)
+print(r.text)
+ Using Post
+payload={'page':2,'count':25}
+r=requests.get('https://httpbin.org/post,data=payload)
+print(r.text)
+Using Json
+r_dict=r.json()
+print(r_dict['form'])
+
+r=requests.get('https://httpbin.org/basic-auth/user/pswrd',auth=('usname','pswrd'),timeout=3)
+
+
+Multiprocessing
+
+Multiprocessing - Run code in parallel
+To speed up the pgm
+p1=multiprocessing.process(target=func)
+p1.start()
+
+Diff bet threading - rund on one processess not much speed  and multiprocessing - run on multiple processess ,more speed
+Multithreading
+To speed up the prgm by running code concurrently
+import threading
+t1=threading.Thread(name = 'thread name' , target = funcname , args = ( ) )
+
+
+
+NumPy
+Numeric-Python (Numpy), is a Python library that is used for numeric and scientific operations.
+NumPy
+NumPy --> Numeric Python, it is a Linear Algebra Library for Python. It is the basic building block for almost all python compatible data science libraries.
+Numpy is also incredibly fast. Here, Numpy arrays are used instead of normal python lists.
+eg: arr1 = np.arange(1,100,5)
+To perform array operations arr1*arr1, arr1+arr2, arr1-arr2, arr1**2, arr.max( ), arr.min( ) , arr1>7 ,arr1 < 2 , arr1 == 1
+Converting list to array
+List=[ ]
+var=np.array(list)
+zeros and ones
+Generate arrays of 1d or 2d of zeros or ones.
+np.zeros(4) or np.zeros(4,4)
+np.ones(4) or np.ones(4,4)
+linspace
+Returns evenly spaced numbers over a specified interval.
+np.linspace(0,10,3) #3rd argument for total numbers to be generated.
+ eye
+Creates an identity matrix
+np.eye(2) ->10
+                    01
+Random
+Generates uniformly distributed random numbers over [0, 1).
+np.random.rand(2)
+randint
+Generates random integers over given range.
+np.random.randint(12,100,9) #3rd argument for total numbers to be generated.
+np.average(data,weights=)
+
+Pandas
+
+The basic data structures of Pandas are Series and DataFrame. 
+A DataFrame is a collection of series where each series represents a column from a table.
+eg:df1 = pd.DataFrame(values),index=[row names],columns=[col names])
+To access rows : df1.loc[row name/index]
+To access col   : df1[column name]
+Series - 1D
+ Similar to numpy arrays, it can be indexed by a label, instead of just a number location.
+To create series
+s=pd.Series(data, index, dtype)
+ser=ser.append(pd.series[ ])
+ser.drop(index)
+s1.add(s2) / s1.sub(s2)
+s.index
+s.values
+d={ 'key' : 'values' }
+s= pd.Series(dict)
+cond=marks_df<50
+marks_df.mask(cond,'fail')
+Apply
+DataFrame.apply(func, axis = 0, result_type = None)
+Concat - to add df1 and df2
+concatenate the two tables will result in some null values because of column mismatch
+pd.concat([df1,df2])
+Merge - to combine df1 and df2
+will perform inner join
+how='inner'
+pd.merge(df1,df2)
+Cross Tab
+cross tab is used. It gives us a tabular representation of the frequency distribution.
+pd.crosstab( )
+Pivot Table
+A Pivot Table is used to summarise, sort, reorganise, group, count, total or average data stored in a table. If we want to create spreadsheet-style pivot table as a data frame, pandas provides us with an option.
+pd.pivot_table(data, index, aggfunc)
+PLOT
+To create a simple plot
+import matplotlib.pyplot as plt
+x=[1,2] , y=[2,3]
+plt.plot(x,y)
+To visualize a data in graph
+df.plot.bar(stacked=True ) -
+df.plot.barh( ) - in horizontal
+df.hist( )
+df.plot.box( )
+df.plot.scatter(x= ' ' , y= ' ' ) 
+
+df.plot(X, y, marker, kind)
+       X = value on X axis
+       y = value on y axis
+       marker = shape incase of specific plots like a scatter plot
+       kind = bar/hist/scatter
+DataFrame- 2D where data in rows and cols
+Data can be cleaned,transformed,manipulated,analysed  in python
+built on top of numpy
+
+iloc - starts with 0 index -exclusive
+loc - starts with 1 index - inclusive
+
+list=np.arange(0,100)
+df=pd.read_csv('file.csv ',index_col='col')
+df.shape = return no of row nd cols
+df.info()  = will return no of rows ,cols,all col name and datatype
+df.head(10) - display first ten rows
+df.tail(10) - dispaly last ten rows
+pd.set_option('display.max_columns','no of cols') - To display maximum columns.similar for rows
+df.columns - gives the col name with type
+df.index - gives the row
+df.values-return row values
+df.axes = return row index
+df.dtypes - return each col data type
+df.iloc[0] - integer location.to access rows using index
+df,iloc[[0,1],2] - 0,1-rows and 2- cols
+df.['colname'].value_counts() - To find no of true and no of false 
+df.nlargest(10,'colname) - to find 10 large val for gn col(sim for smallest)
+df[' '].unique( ) - To find unique value in a column
+df.corr( ) - To find relationships between columns in a DataFrame.
+
+ddf=pd.DataFrame(data)
+ddf.columns=['num']
+
+to convert dict to dataframe
+df=pd.DataFrame(dict)
+To access particular col in df
+df.colname or df['colname']  or df[['col1','col2]]
+df.loc[rows,cols]
+In pandas 0:2 - includes 0 and 2 for slicing
+
+To set column as Index
+df.set_index('colname')
+To Reset columns
+df.reset_index(inplace=True)
+
+Filtering of data using Data Frame
+filt=df['colname'] == 'value'
+df[filt]  = retirns only maching rows
+
+& = and 
+|  = or
+~ =  not
+
+To find max in a col:
+high=df['colname']>5000
+df.loc(high,[needed cosl])
+
+To find if a col matches with ele in list
+list=[]
+df.[colname].isin(list)
+
+String operations
+To find python present in a col or not
+df[colname].str.contains('python) 
+To replace ' ' to   _
+df.columns=df.columns.str.replace(' ' , _)
+To split 
+df['col].str.split(' ' ,expand=True)
+To chng case
+.str.lower() , str.upper()
+
+To chng col name
+df.columns=[' ', ' ']
+To rename col name
+df.rename(columns={'first_nanme':'first})
+To chng col name to chng case
+df.columns=[x.uppper() for x in df.columns]
+df['email']=df['email'].str.lower()
+To chng row values
+df.loc[index,colname] = ['new values']
+Apply -  To apply a function to a series or a dataframe
+series- each value in a row and col
+dataframe - refers to the structure 
+we can also pass user defined function as parameter to apply
+df['email].apply(len) - To find len of mail
+Lamda function
+apply(lamda x : x.lower)
+
+Applymap
+df.applymap(len)
+df.applymap(str.lower)
+
+Map - works only on series to substitute a value
+df['first'].map({'a':'b'})
+Replace
+df['first'].replace({'a':'b'})
+diff bet map and replace is tat map will display none for values tat are not substituted whereas replace wont
+
+Add cols
+df['full']=df['first'] + ' ' +['last']
+df.append({new vals with col name},ignore_index=True)
+To remove cols
+df.drop(columns=['first','last'])
+df.drop(index=4)
+df.drop_duplicates( ) - to drop duplicates in a df
+To sort 
+df.sort_index(ascending=False)
+df.sort_values(by=['col'] , ascendinf=[False])
+df['col'].sort_vallues()
+
+To add one df to other df
+df,append(df1,ignore_index=True)
+df=pd.concat([ ' ', ' ' ],axis='cols' ,sort=False)
+
+Aggregating data - combining multiple pieces to single data
+Median 
+df['col'].median( ) - To find median value of sal
+df.median( )
+df.describe( )
+df[ ].count( )
+To get in  % -df[' ' ].value_counts(normalize=True)
+To perform more aggr function
+c_grup['Salary']..agg(['median','mean']
+c_grup['Salary'].sum( )
+
+Grouping data 
+groupby- splitting,applying func and combining result
+c_grup=df.groupby(['Country']) - To grup by country
+c_grup['SocialMedia'].value_counts() - Get each country with count
+c_grup.['SocialMedia'].value_counts().loc['US'] -To get particular country
+c_grup.loc['US']
+Exercise find no of % of people knows python by gruping country
+
+Cleaning data
+To drop the na data
+df.dropna( )
+df.isna( )
+df.fillna('Missing') - To fill na col with value missing
+df.dropna(axis='index/columns' , how ='all/any' , subset=[colname])
+df.replace('Missing',np.nan,inplace=True)
+
+To convert col dtype
+df['age'].astype(float)
+
+Date and Time Series
+pd.to_datetime(col,,format='%Y-%m-%d)
+df.loc[],day_name( )
+df['col'].min( )
+df['col'].max( )
+df[].resample('D' ),max - to find high for each day
+
+
+Graph 
+%matplotlib inline
+col.plot( )
+
+To CSV
+file.to_csv('fname.csv')
+file.to_csv('fname.tsv',sep='\t' )
+
+Excel 
+fl.to_excel('fn,xlsx')
+df=pd.read_excel('fn.xlsx')
+
+Json
+fl.to_json('fn.json')
+fl.to_json('fn.json', orient ='records' , lines=True )
+df=pd.read_json('fn.json )
+
+SQL
+ To import sql
+from sqlalchemy import create_engine
+import psycopg2
+engine=create_engine('postgresql://dbuser:dbpass@localhost:5432/sample_db')
+india_df.to_sql('fn',engine)
+df=pd.read_sql('fn',engine)
+df=pd.read_sql_query('SELECT * FROM TABLE',engine) - To read using a query
